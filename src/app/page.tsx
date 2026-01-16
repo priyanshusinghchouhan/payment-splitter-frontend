@@ -2,11 +2,11 @@
 
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import PaymentSplitterABI from '@/abi/PaymentSplitter.json';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { parseEther, formatEther } from "viem";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-const CONTRACT_ADDRESS = '0xEb5C7507465A4b6b10fD331fE59c492652Bb4931';
+const CONTRACT_ADDRESS = '0xe5ec1Cb22489c032b6EA821461d12F6cE9a6434B';
 
 export default function Home() {
   const {isConnected} = useAccount();
@@ -22,13 +22,15 @@ export default function Home() {
     address: CONTRACT_ADDRESS,
     abi: PaymentSplitterABI,
     functionName: 'getPayees'
-  });
+  })as { data: readonly string[] | undefined };
+  console.log("Payees: ", payees);
 
   const {data: shares} = useReadContract({
     address: CONTRACT_ADDRESS,
     abi: PaymentSplitterABI,
     functionName: 'getShares'
-  });
+  })as { data: readonly bigint[] | undefined };
+  console.log("Payees: ", shares);
 
 
   const {writeContract, data: hash} = useWriteContract();
@@ -79,7 +81,53 @@ export default function Home() {
               </p>
             </div>
 
-            
+            <div className="bg-white rounded-lg shadow-lg p-6" >
+              <h2 className="text-2xl font-semibold mb-4">Payment Distribution</h2>
+              <div className="space-y-3">
+                {payees && shares && (payees as string[]).map((payee, i) => (
+                  <div key={i} className="flex justify-between items-center p-3 bg-gray-50 rounded">
+                    <span className="font-mono text-sm">{payee}</span>
+                    <span className="font-semibold">{(shares as bigint[])[i].toString()}%</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Send ETH */}
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-xl font-semibold mb-4">Send ETH to Contract</h2>
+                <input
+                  type="number"
+                  step="0.001"
+                  placeholder="Amount in ETH"
+                  value={sendAmount}
+                  onChange={(e) => setSendAmount(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded mb-4"
+                />
+                <button
+                  onClick={handleSendEth}
+                  className="w-full bg-blue-600 text-white py-3 rounded font-semibold hover:bg-blue-700 transition"
+                >
+                  Send ETH
+                </button>
+              </div>
+
+              {/* Split Payment */}
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h2 className="text-xl font-semibold mb-4">Split Payment</h2>
+                <p className="text-gray-600 mb-4">
+                  Distribute {balance ? formatEther(balance as bigint) : '0'} ETH to all payees
+                </p>
+                <button
+                  onClick={handleSplit}
+                  disabled={isSplitting || !balance}
+                  className="w-full bg-green-600 text-white py-3 rounded font-semibold hover:bg-green-700 transition disabled:bg-gray-400"
+                >
+                  {isSplitting ? 'Splitting...' : 'Split Now'}
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
