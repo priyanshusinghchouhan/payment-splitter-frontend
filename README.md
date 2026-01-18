@@ -65,5 +65,49 @@ A decentralized payment splitter built on Ethereum that automatically distribute
 
 <img width="1872" height="923" alt="image" src="https://github.com/user-attachments/assets/7564832e-7231-4592-a89b-9ac36441a01a" />
 
+## 🚀 Local Development
+```bash
+# Clone the repository
+git clone https://github.com/priyanshusinghchouhan/payment-splitter-contract.git
+cd payment-splitter-contract
 
+# Install contract dependencies
+forge install
+
+# Run tests
+forge test -vv
+
+# Install frontend dependencies
+cd frontend
+npm install
+
+# Run development server
+npm run dev
+```
+
+## 🧪 Testing
+
+The smart contract includes comprehensive tests covering:
+- Multiple payees distribution
+- Custom percentage splits
+- Rounding edge cases
+- Invalid input validation
+- Balance checks
+
+Run tests:
+```bash
+forge test -vv
+```
+
+## 📝 License
+
+MIT
+
+## 👨‍💻 Author
+
+Built by [Priyanshu Singh](https://github.com/priyanshusinghchouhan)
+
+---
+
+## **Note:** This project is deployed on Sepolia testnet for demonstration purposes.
 
