@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Payment Splitter 💸
 
-## Getting Started
+A decentralized payment splitter built on Ethereum that automatically distributes funds to multiple recipients based on predefined percentages.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Frontend:** [https://your-vercel-url-here.vercel.app](https://payment-splitter-drab.vercel.app/)
+- **Smart Contract (Sepolia):** [0xe5ec1Cb22489c032b6EA821461d12F6cE9a6434B](https://sepolia.etherscan.io/address/0xe5ec1Cb22489c032b6EA821461d12F6cE9a6434B)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Split payments between multiple addresses with custom percentages
+- Automatic distribution with a single transaction
+- No dust left behind - rounding handled correctly
+- Real-time balance updates
+- Secure wallet integration via RainbowKit
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+**Smart Contract:**
+- Solidity ^0.8.20
+- Foundry for development and testing
+- Deployed on Ethereum Sepolia testnet
+- Comprehensive test suite (8+ test cases)
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend:**
+- Next.js 14 with TypeScript
+- Wagmi v2 + Viem for blockchain interaction
+- RainbowKit for wallet connection
+- TailwindCSS for styling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📊 Contract Details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Current Configuration:**
+- Payee 1: 50% (0x5EfE9a92A38c93Ef29A4f08a7Fb7d1FEC60d8a30)
+- Payee 2: 30% (0x664aad60bf20754413713C19D01c41BeF17FC9a9)
+- Payee 3: 20% (0xA9703E70cc378cCefC27CdEF608483033aF45C16)
 
-## Deploy on Vercel
+## 🎯 How It Works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connect your wallet
+2. Send ETH to the contract address
+3. Click "Split Now" to distribute funds
+4. Each payee automatically receives their percentage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
