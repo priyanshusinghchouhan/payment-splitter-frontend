@@ -43,3 +43,27 @@ A decentralized payment splitter built on Ethereum that automatically distribute
 3. Click "Split Now" to distribute funds
 4. Each payee automatically receives their percentage
 
+## 📸 Screenshots
+
+### **Main Interface:**
+
+<img width="1888" height="926" alt="image" src="https://github.com/user-attachments/assets/acf01ee4-33b4-4c41-8492-82f2b34a0100" />
+
+<img width="1892" height="927" alt="image" src="https://github.com/user-attachments/assets/1558011d-4b94-432a-821b-eaa1b459c0c7" />
+
+
+### **After Funding:**
+
+<img width="1896" height="928" alt="image" src="https://github.com/user-attachments/assets/d37552ed-7cd2-4a21-b656-9a8a5c04023a" />
+
+
+### **After Split:**
+
+<img width="1898" height="928" alt="image" src="https://github.com/user-attachments/assets/3c23f712-218d-47ab-8cb9-5962075947aa" />
+
+<img width="1860" height="923" alt="image" src="https://github.com/user-attachments/assets/825cfd9a-4477-4fad-a19b-c7e32e67a128" />
+
+<img width="1872" height="923" alt="image" src="https://github.com/user-attachments/assets/7564832e-7231-4592-a89b-9ac36441a01a" />
+
+
+
