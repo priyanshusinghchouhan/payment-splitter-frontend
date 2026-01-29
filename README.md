@@ -4,7 +4,6 @@ A decentralized payment splitter built on Ethereum that automatically distribute
 
 ## 🚀 Live Demo
 
-- **Frontend:** [https://payment-splitter-drab.vercel.app/](https://payment-splitter-drab.vercel.app/)
 - **Smart Contract (Sepolia):** [0xe5ec1Cb22489c032b6EA821461d12F6cE9a6434B](https://sepolia.etherscan.io/address/0xe5ec1Cb22489c032b6EA821461d12F6cE9a6434B)
 - **Contract Repo:** https://github.com/priyanshusinghchouhan/payment-splitter-contract
 
